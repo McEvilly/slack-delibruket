@@ -13,6 +13,8 @@ def week_menu():
   soup = BeautifulSoup(html, "html.parser")
 
   text = soup.get_text()
+  text = text.replace(u'\u201c', '"') # Replace left quotation mark
+  text = text.replace(u'\u201d', '"') # Replace right quotation mark
   text = text.split("VECKANS LUNCH")[1]
   volvo = text.split("DELIBRUKET UPPLANDS MOTOR")[1]
   volvo = volvo.split("DELIBRUKET HEDIN BIL")[0]
